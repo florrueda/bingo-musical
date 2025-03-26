@@ -42,7 +42,7 @@ export class BingoMusicalComponent implements OnInit {
   generarCarton(): void {
     this.tarjetas = this.todasLasCanciones
       .sort(() => 0.5 - Math.random())
-      .slice(0, 6)
+      .slice(0, 8)
       .map(nombre => ({ nombre, marcada: false }));
     this.bingo = false;
   }
