@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="bingo-title">Flower's Music Bingo <mat-icon>local_florist</mat-icon></h1>
+
+  <div *ngIf="tarjetas.length === 0" class="input-container">
+    <input type="text" placeholder="Ingresa tu nombre" [formControl]="nombre" />
+    <button mat-button color="accent" (click)="ingresar()">Ingresar</button>
+  </div>
+
+  <div *ngIf="tarjetas.length > 0">
+    <h2>Bienvenido/a, {{ nombre.value }}!</h2>
+    <p>Marca las canciones que escuches.</p>
+
+    <div class="tarjetas-container">
+      <div
+        *ngFor="let tarjeta of tarjetas"
+        class="tarjeta"
+        [class.marcada]="tarjeta.marcada"
+        (click)="marcarTarjeta(tarjeta)">
+        {{ tarjeta.nombre }}
+      </div>
+    </div>
+
+    <div *ngIf="bingo" class="bingo-banner">
+      <h2>¡BINGO!</h2>
+    </div>
+
+
+
+  </div>
+</div>
